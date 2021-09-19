@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'components/drawer.dart';
-import 'components/navbar.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -11,15 +10,29 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        children: <Widget>[
-          Navbar(),
-          SizedBox(
-            width: double.infinity,
-            height: 10.0,
+      appBar: AppBar(
+        title: Container(
+          width: double.infinity,
+          height: 40,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(25.0),
+            border: Border.all(
+              color: Colors.black54,
+            ),
+            color: Colors.white,
           ),
-          //Body Remaining
-        ],
+          padding: EdgeInsets.only(left: 10.0),
+          child: TextField(
+            decoration: InputDecoration(
+              hintText: 'Search your Course',
+              border: InputBorder.none,
+              suffixIcon: IconButton(
+                icon: Icon(Icons.search),
+                onPressed: (){},
+              ),
+            ),
+          ),
+        ),
       ),
       drawer: AppDrawer(),
     );
